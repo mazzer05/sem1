@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTodos, addTodo, editTodo, deleteTodo } from '../redux/actions';
 import TodoItem from './TodoItem';
 
-
 const TodoList = () => {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos);
@@ -17,7 +16,6 @@ const TodoList = () => {
   const handleAdd = () => {
     const todo = { id: Date.now(), text: newTodo };
     dispatch(addTodo(todo));
-    localStorage.setItem('todos', JSON.stringify([...todos, todo]));
     setNewTodo('');
   };
 
@@ -29,18 +27,12 @@ const TodoList = () => {
   const handleUpdate = () => {
     const updatedTodo = { ...editingTodo, text: newTodo };
     dispatch(editTodo(updatedTodo));
-    const updatedTodos = todos.map((todo) =>
-      todo.id === updatedTodo.id ? updatedTodo : todo
-    );
-    localStorage.setItem('todos', JSON.stringify(updatedTodos));
     setNewTodo('');
     setEditingTodo(null);
   };
 
   const handleDelete = (id) => {
     dispatch(deleteTodo(id));
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
-    localStorage.setItem('todos', JSON.stringify(updatedTodos));
   };
 
   return (
@@ -52,7 +44,7 @@ const TodoList = () => {
         onChange={(e) => setNewTodo(e.target.value)}
         placeholder="Add a new task"
       />
-      <button onClick={editingTodo ? handleUpdate : handleAdd }>
+      <button onClick={editingTodo ? handleUpdate : handleAdd}>
         {editingTodo ? 'Update Task' : 'Add Task'}
       </button>
       <div>
