@@ -6,29 +6,40 @@ import TodoItem from './TodoItem';
 const TodoList = () => {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos);
-  const [newTodo, setNewTodo] = useState('');
-  const [editingTodo, setEditingTodo] = useState(null);
+  const [newTodoText, setNewTodoText] = useState('');
+  const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
     dispatch(fetchTodos());
   }, [dispatch]);
 
   const handleAdd = () => {
-    const todo = { id: Date.now(), text: newTodo };
-    dispatch(addTodo(todo));
-    setNewTodo('');
+    if (!newTodoText.trim()) return;
+    
+    const newTodo = {
+      text: newTodoText,
+      completed: false
+    };
+    dispatch(addTodo(newTodo));
+    setNewTodoText('');
   };
 
   const handleEdit = (todo) => {
-    setEditingTodo(todo);
-    setNewTodo(todo.text);
+    setEditingId(todo.id);
+    setNewTodoText(todo.text);
   };
 
   const handleUpdate = () => {
-    const updatedTodo = { ...editingTodo, text: newTodo };
+    if (!newTodoText.trim()) return;
+    
+    const updatedTodo = {
+      id: editingId,
+      text: newTodoText,
+      completed: todos.find(todo => todo.id === editingId)?.completed || false
+    };
     dispatch(editTodo(updatedTodo));
-    setNewTodo('');
-    setEditingTodo(null);
+    setNewTodoText('');
+    setEditingId(null);
   };
 
   const handleDelete = (id) => {
@@ -40,20 +51,20 @@ const TodoList = () => {
       <h2>To-Do List</h2>
       <input
         type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
+        value={newTodoText}
+        onChange={(e) => setNewTodoText(e.target.value)}
         placeholder="Add a new task"
       />
-      <button onClick={editingTodo ? handleUpdate : handleAdd}>
-        {editingTodo ? 'Update Task' : 'Add Task'}
+      <button onClick={editingId ? handleUpdate : handleAdd}>
+        {editingId ? 'Update Task' : 'Add Task'}
       </button>
       <div>
         {todos.map((todo) => (
           <TodoItem
             key={todo.id}
             todo={todo}
-            onEdit={handleEdit}
-            onDelete={handleDelete}
+            onEdit={() => handleEdit(todo)}
+            onDelete={() => handleDelete(todo.id)}
           />
         ))}
       </div>

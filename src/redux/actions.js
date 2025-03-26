@@ -12,7 +12,7 @@ export const fetchTodos = () => async (dispatch) => {
 };
 
 export const addTodo = (todo) => async (dispatch) => {
-  const response = await fetch(API_URL, {
+  const response = await fetch('http://localhost:3001/todos', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export const addTodo = (todo) => async (dispatch) => {
 };
 
 export const editTodo = (todo) => async (dispatch) => {
-  const response = await fetch(`${API_URL}/${todo.id}`, {
+  const response = await fetch(`http://localhost:3001/todos/${todo.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ export const editTodo = (todo) => async (dispatch) => {
 };
 
 export const deleteTodo = (id) => async (dispatch) => {
-  await fetch(`${API_URL}/${id}`, {
+  await fetch(`http://localhost:3001/todos/${id}`, {
     method: 'DELETE',
   });
   dispatch({ type: DELETE_TODO, payload: id });

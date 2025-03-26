@@ -18,8 +18,6 @@ const ThemeToggle = ({ toggleTheme }) => {
         
         flexDirection: 'column', 
         justifyContent: 'center', 
-        transition: 'transform 0.6s', 
-        transform: isRotated ? 'rotate(360deg)' : 'rotate(0deg)' 
       }} 
       className="Theme" 
       onClick={handleClick} 
