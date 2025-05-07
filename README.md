@@ -39,7 +39,7 @@ A full-stack todo application built with the MERN stack (MongoDB, Express.js, Re
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/mazzer05/sem1)
 cd fullstack4
 ```
 
@@ -156,9 +156,3 @@ fullstack4/
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-Your Name - your.email@example.com
-
-Project Link: [https://github.com/yourusername/fullstack4](https://github.com/yourusername/fullstack4)
