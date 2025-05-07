@@ -39,7 +39,7 @@ A full-stack todo application built with the MERN stack (MongoDB, Express.js, Re
 
 1. Clone the repository:
 ```bash
-git clone [<repository-url>](https://github.com/mazzer05/sem1)
+git clone https://github.com/mazzer05/sem1
 cd fullstack4
 ```
 
