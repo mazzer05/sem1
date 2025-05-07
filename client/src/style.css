@@ -1,0 +1,54 @@
+.app {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.app.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.app.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.todo-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.task-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin: 10px 0;
+}
+
+.todo-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions button {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Добавьте остальные стили по необходимости */

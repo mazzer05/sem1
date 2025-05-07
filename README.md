@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+# Todo Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack todo application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) featuring user authentication and a modern UI.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- 🔐 User Authentication (Register/Login)
+- ✨ Create, Read, Update, and Delete (CRUD) operations for todos
+- 📅 Due dates for tasks
+- 🏷️ Tag system for better organization
+- ⏰ Reminder functionality
+- 📱 Responsive design
+- 🔒 Protected routes
+- 🔄 Real-time updates
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- React.js
+- Redux for state management
+- React Router for navigation
+- Axios for API requests
+- CSS for styling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JWT for authentication
+- bcrypt for password hashing
 
-### `npm test`
+## Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd fullstack4
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install server dependencies:
+```bash
+cd server
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install client dependencies:
+```bash
+cd ../client
+npm install
+```
 
-### `npm run eject`
+4. Create a `.env` file in the server directory with the following variables:
+```
+MONGODB_URI=mongodb://localhost:27017/todoapp
+JWT_SECRET=your-secret-key
+PORT=3001
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Start MongoDB:
+```bash
+mongod
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Start the server:
+```bash
+cd server
+npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the client:
+```bash
+cd client
+npm start
+```
 
-## Learn More
+The application will be available at:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:3001
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## API Endpoints
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Authentication
+- POST `/api/auth/register` - Register a new user
+- POST `/api/auth/login` - Login user
 
-### Code Splitting
+### Todos
+- GET `/api/todos` - Get all todos for the authenticated user
+- POST `/api/todos` - Create a new todo
+- PUT `/api/todos/:id` - Update a todo
+- DELETE `/api/todos/:id` - Delete a todo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
 
-### Analyzing the Bundle Size
+```
+fullstack4/
+├── client/                 # Frontend React application
+│   ├── public/
+│   └── src/
+│       ├── components/     # React components
+│       ├── context/        # Context providers
+│       ├── redux/          # Redux store, actions, reducers
+│       └── App.js          # Main application component
+│
+└── server/                 # Backend Node.js application
+    ├── controllers/        # Route controllers
+    ├── middleware/         # Custom middleware
+    ├── models/            # Mongoose models
+    ├── routes/            # API routes
+    └── server.js          # Entry point
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Features in Detail
 
-### Making a Progressive Web App
+### Authentication
+- Secure user registration and login
+- JWT-based authentication
+- Protected routes
+- Persistent sessions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Todo Management
+- Create new todos with:
+  - Title
+  - Status (New, In Progress, Completed)
+  - Due date
+  - Tags
+  - Reminder option
+- Edit existing todos
+- Delete todos
+- Filter todos by status
+- Search todos by text
 
-### Advanced Configuration
+### User Interface
+- Clean and modern design
+- Responsive layout
+- Intuitive navigation
+- Loading states
+- Error handling
+- Success notifications
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+
+Your Name - your.email@example.com
+
+Project Link: [https://github.com/yourusername/fullstack4](https://github.com/yourusername/fullstack4)
