@@ -39,7 +39,7 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone <repository-url>
+git clone https://github.com/mazzer05/sem1
 cd fullstack4
 ```
 
@@ -155,10 +155,4 @@ fullstack4/
 
 ## Лицензия
 
-Этот проект лицензирован под MIT License - подробности в файле LICENSE.
-
-## Контакты
-
-Ваше Имя - your.email@example.com
-
-Ссылка на проект: [https://github.com/yourusername/fullstack4](https://github.com/yourusername/fullstack4)
+This project is licensed under the MIT License - see the LICENSE file for details.
