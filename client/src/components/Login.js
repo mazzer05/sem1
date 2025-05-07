@@ -20,17 +20,17 @@ const Login = () => {
       login(response.data.user, response.data.token);
       navigate('/'); // Navigate to home page after successful login
     } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred');
+      setError(err.response?.data?.message || 'Произошла ошибка');
     }
   };
 
   return (
     <div className="auth-form">
-      <h2>Login</h2>
+      <h2>Вход</h2>
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:</label>
+          <label>Имя пользователя:</label>
           <input
             type="text"
             value={username}
@@ -39,7 +39,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Пароль:</label>
           <input
             type="password"
             value={password}
@@ -47,10 +47,10 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Войти</button>
       </form>
       <p className="auth-link">
-        Don't have an account? <Link to="/register">Register here</Link>
+        Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
       </p>
     </div>
   );

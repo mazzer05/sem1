@@ -22,7 +22,7 @@ const ThemeToggle = ({ toggleTheme }) => {
       className="Theme" 
       onClick={handleClick} 
     >
-      Toggle Theme
+      Сменить тему
     </button>
   );
 };

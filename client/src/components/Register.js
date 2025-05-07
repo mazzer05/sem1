@@ -22,17 +22,17 @@ const Register = () => {
       login(response.data.user, response.data.token);
       navigate('/'); // Navigate to home page after successful registration
     } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred');
+      setError(err.response?.data?.message || 'Произошла ошибка');
     }
   };
 
   return (
     <div className="auth-form">
-      <h2>Register</h2>
+      <h2>Регистрация</h2>
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:</label>
+          <label>Имя пользователя:</label>
           <input
             type="text"
             value={username}
@@ -50,7 +50,7 @@ const Register = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label>Пароль:</label>
           <input
             type="password"
             value={password}
@@ -59,10 +59,10 @@ const Register = () => {
             minLength="6"
           />
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">Зарегистрироваться</button>
       </form>
       <p className="auth-link">
-        Already have an account? <Link to="/login">Login here</Link>
+        Уже есть аккаунт? <Link to="/login">Войти</Link>
       </p>
     </div>
   );

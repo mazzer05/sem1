@@ -8,7 +8,7 @@ exports.getAllTodos = async (req, res) => {
     res.json(todos);
   } catch (error) {
     console.error('Error in getAllTodos:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ message: 'Ошибка сервера', error: error.message });
   }
 };
 
@@ -33,7 +33,7 @@ exports.createTodo = async (req, res) => {
     res.status(201).json(savedTodo);
   } catch (error) {
     console.error('Error in createTodo:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ message: 'Ошибка сервера', error: error.message });
   }
 };
 
@@ -52,14 +52,14 @@ exports.updateTodo = async (req, res) => {
     
     if (!updatedTodo) {
       console.log('Todo not found or user not authorized');
-      return res.status(404).json({ message: 'Todo not found or user not authorized' });
+      return res.status(404).json({ message: 'Задача не найдена или у вас нет прав для её изменения' });
     }
     
     console.log('Updated todo:', updatedTodo);
     res.json(updatedTodo);
   } catch (error) {
     console.error('Error in updateTodo:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ message: 'Ошибка сервера', error: error.message });
   }
 };
 
@@ -73,13 +73,13 @@ exports.deleteTodo = async (req, res) => {
     
     if (!deletedTodo) {
       console.log('Todo not found or user not authorized');
-      return res.status(404).json({ message: 'Todo not found or user not authorized' });
+      return res.status(404).json({ message: 'Задача не найдена или у вас нет прав для её удаления' });
     }
     
     console.log('Todo deleted successfully:', deletedTodo);
     res.sendStatus(204);
   } catch (error) {
     console.error('Error in deleteTodo:', error);
-    res.status(500).json({ message: 'Server error', error: error.message });
+    res.status(500).json({ message: 'Ошибка сервера', error: error.message });
   }
 };

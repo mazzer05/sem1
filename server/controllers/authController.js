@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
     
     if (existingUser) {
       return res.status(400).json({ 
-        message: 'User with this email or username already exists' 
+        message: 'Пользователь с таким email или именем уже существует' 
       });
     }
 
@@ -36,7 +36,7 @@ exports.register = async (req, res) => {
     );
 
     res.status(201).json({
-      message: 'User created successfully',
+      message: 'Пользователь успешно создан',
       token,
       user: {
         id: user._id,
@@ -45,7 +45,7 @@ exports.register = async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ message: 'Error creating user', error: error.message });
+    res.status(500).json({ message: 'Ошибка при создании пользователя', error: error.message });
   }
 };
 
@@ -57,13 +57,13 @@ exports.login = async (req, res) => {
     // Find user
     const user = await User.findOne({ username });
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Неверные учетные данные' });
     }
 
     // Check password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Неверные учетные данные' });
     }
 
     // Generate token
@@ -74,7 +74,7 @@ exports.login = async (req, res) => {
     );
 
     res.json({
-      message: 'Login successful',
+      message: 'Вход выполнен успешно',
       token,
       user: {
         id: user._id,
@@ -83,13 +83,13 @@ exports.login = async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(500).json({ message: 'Error logging in', error: error.message });
+    res.status(500).json({ message: 'Ошибка при входе', error: error.message });
   }
 };
 
 exports.logout = (req, res) => {
   res.clearCookie('token');
-  res.json({ message: 'Logged out successfully' });
+  res.json({ message: 'Выход выполнен успешно' });
 };
 
 exports.getUser = async (req, res) => {
@@ -97,6 +97,6 @@ exports.getUser = async (req, res) => {
     const user = await User.findById(req.userId).select('-password');
     res.json(user);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Ошибка сервера' });
   }
 };

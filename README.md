@@ -1,164 +1,164 @@
-# Todo Application
+# Приложение Todo
 
-A full-stack todo application built with the MERN stack (MongoDB, Express.js, React.js, Node.js) featuring user authentication and a modern UI.
+Полнофункциональное приложение для управления задачами, построенное на стеке MERN (MongoDB, Express.js, React.js, Node.js) с аутентификацией пользователей и современным пользовательским интерфейсом.
 
-## Features
+## Возможности
 
-- 🔐 User Authentication (Register/Login)
-- ✨ Create, Read, Update, and Delete (CRUD) operations for todos
-- 📅 Due dates for tasks
-- 🏷️ Tag system for better organization
-- ⏰ Reminder functionality
-- 📱 Responsive design
-- 🔒 Protected routes
-- 🔄 Real-time updates
+- 🔐 Аутентификация пользователей (Регистрация/Вход)
+- ✨ Создание, чтение, обновление и удаление (CRUD) задач
+- 📅 Сроки выполнения задач
+- 🏷️ Система тегов для лучшей организации
+- ⏰ Функция напоминаний
+- 📱 Адаптивный дизайн
+- 🔒 Защищенные маршруты
+- 🔄 Обновления в реальном времени
 
-## Tech Stack
+## Технологический стек
 
-### Frontend
+### Фронтенд
 - React.js
-- Redux for state management
-- React Router for navigation
-- Axios for API requests
-- CSS for styling
+- Redux для управления состоянием
+- React Router для навигации
+- Axios для API-запросов
+- CSS для стилизации
 
-### Backend
+### Бэкенд
 - Node.js
 - Express.js
-- MongoDB with Mongoose
-- JWT for authentication
-- bcrypt for password hashing
+- MongoDB с Mongoose
+- JWT для аутентификации
+- bcrypt для хеширования паролей
 
-## Prerequisites
+## Требования
 
-- Node.js (v14 or higher)
+- Node.js (версия 14 или выше)
 - MongoDB
-- npm or yarn
+- npm или yarn
 
-## Installation
+## Установка
 
-1. Clone the repository:
+1. Клонируйте репозиторий:
 ```bash
 git clone <repository-url>
 cd fullstack4
 ```
 
-2. Install server dependencies:
+2. Установите зависимости сервера:
 ```bash
 cd server
 npm install
 ```
 
-3. Install client dependencies:
+3. Установите зависимости клиента:
 ```bash
 cd ../client
 npm install
 ```
 
-4. Create a `.env` file in the server directory with the following variables:
+4. Создайте файл `.env` в директории сервера со следующими переменными:
 ```
 MONGODB_URI=mongodb://localhost:27017/todoapp
 JWT_SECRET=your-secret-key
 PORT=3001
 ```
 
-## Running the Application
+## Запуск приложения
 
-1. Start MongoDB:
+1. Запустите MongoDB:
 ```bash
 mongod
 ```
 
-2. Start the server:
+2. Запустите сервер:
 ```bash
 cd server
 npm start
 ```
 
-3. Start the client:
+3. Запустите клиент:
 ```bash
 cd client
 npm start
 ```
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend: http://localhost:3001
+Приложение будет доступно по адресам:
+- Фронтенд: http://localhost:3000
+- Бэкенд: http://localhost:3001
 
 ## API Endpoints
 
-### Authentication
-- POST `/api/auth/register` - Register a new user
-- POST `/api/auth/login` - Login user
+### Аутентификация
+- POST `/api/auth/register` - Регистрация нового пользователя
+- POST `/api/auth/login` - Вход пользователя
 
-### Todos
-- GET `/api/todos` - Get all todos for the authenticated user
-- POST `/api/todos` - Create a new todo
-- PUT `/api/todos/:id` - Update a todo
-- DELETE `/api/todos/:id` - Delete a todo
+### Задачи
+- GET `/api/todos` - Получить все задачи авторизованного пользователя
+- POST `/api/todos` - Создать новую задачу
+- PUT `/api/todos/:id` - Обновить задачу
+- DELETE `/api/todos/:id` - Удалить задачу
 
-## Project Structure
+## Структура проекта
 
 ```
 fullstack4/
-├── client/                 # Frontend React application
+├── client/                 # Фронтенд на React
 │   ├── public/
 │   └── src/
-│       ├── components/     # React components
-│       ├── context/        # Context providers
+│       ├── components/     # React компоненты
+│       ├── context/        # Провайдеры контекста
 │       ├── redux/          # Redux store, actions, reducers
-│       └── App.js          # Main application component
+│       └── App.js          # Главный компонент приложения
 │
-└── server/                 # Backend Node.js application
-    ├── controllers/        # Route controllers
-    ├── middleware/         # Custom middleware
-    ├── models/            # Mongoose models
-    ├── routes/            # API routes
-    └── server.js          # Entry point
+└── server/                 # Бэкенд на Node.js
+    ├── controllers/        # Контроллеры маршрутов
+    ├── middleware/         # Пользовательские middleware
+    ├── models/            # Mongoose модели
+    ├── routes/            # API маршруты
+    └── server.js          # Точка входа
 ```
 
-## Features in Detail
+## Подробное описание возможностей
 
-### Authentication
-- Secure user registration and login
-- JWT-based authentication
-- Protected routes
-- Persistent sessions
+### Аутентификация
+- Безопасная регистрация и вход пользователей
+- Аутентификация на основе JWT
+- Защищенные маршруты
+- Постоянные сессии
 
-### Todo Management
-- Create new todos with:
-  - Title
-  - Status (New, In Progress, Completed)
-  - Due date
-  - Tags
-  - Reminder option
-- Edit existing todos
-- Delete todos
-- Filter todos by status
-- Search todos by text
+### Управление задачами
+- Создание новых задач с:
+  - Заголовком
+  - Статусом (Новая, В процессе, Завершена)
+  - Сроком выполнения
+  - Тегами
+  - Опцией напоминания
+- Редактирование существующих задач
+- Удаление задач
+- Фильтрация задач по статусу
+- Поиск задач по тексту
 
-### User Interface
-- Clean and modern design
-- Responsive layout
-- Intuitive navigation
-- Loading states
-- Error handling
-- Success notifications
+### Пользовательский интерфейс
+- Чистый и современный дизайн
+- Адаптивная верстка
+- Интуитивная навигация
+- Состояния загрузки
+- Обработка ошибок
+- Уведомления об успешных действиях
 
-## Contributing
+## Участие в разработке
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Форкните репозиторий
+2. Создайте ветку для вашей функции (`git checkout -b feature/AmazingFeature`)
+3. Зафиксируйте ваши изменения (`git commit -m 'Добавлена новая функция'`)
+4. Отправьте изменения в ветку (`git push origin feature/AmazingFeature`)
+5. Откройте Pull Request
 
-## License
+## Лицензия
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Этот проект лицензирован под MIT License - подробности в файле LICENSE.
 
-## Contact
+## Контакты
 
-Your Name - your.email@example.com
+Ваше Имя - your.email@example.com
 
-Project Link: [https://github.com/yourusername/fullstack4](https://github.com/yourusername/fullstack4)
+Ссылка на проект: [https://github.com/yourusername/fullstack4](https://github.com/yourusername/fullstack4)

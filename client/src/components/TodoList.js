@@ -85,11 +85,11 @@ const TodoList = () => {
   };
 
   if (loading) {
-    return <div className="loading">Loading todos...</div>;
+    return <div className="loading">Загрузка задач...</div>;
   }
 
   if (error) {
-    return <div className="error">Error: {error}</div>;
+    return <div className="error">Ошибка: {error}</div>;
   }
 
   return (
@@ -97,7 +97,7 @@ const TodoList = () => {
       <div className="header">
         <h2>Управление задачами</h2>
         <button onClick={handleLogout} className="logout-button">
-          Logout
+          Выйти
         </button>
       </div>
       
@@ -118,9 +118,9 @@ const TodoList = () => {
           onChange={(e) => setSelectedStatus(e.target.value)}
           className="status-select"
         >
-          <option value="новая">🆕 Новая</option>
-          <option value="в процессе">⏳ В процессе</option>
-          <option value="завершена">✅ Завершена</option>
+          <option value="новая">Новая</option>
+          <option value="в процессе">В процессе</option>
+          <option value="завершена">Завершена</option>
         </select>
       </div>
 
@@ -155,7 +155,7 @@ const TodoList = () => {
             checked={enableReminder}
             onChange={(e) => setEnableReminder(e.target.checked)}
           />
-          ⏰ Установить напоминание
+          Установить напоминание
         </label>
       </div>
 
@@ -164,7 +164,7 @@ const TodoList = () => {
         onClick={editingId ? handleUpdate : handleAdd}
         className={`action-button ${editingId ? 'update' : 'add'}`}
       >
-        {editingId ? '🔄 Обновить' : '➕ Добавить'}
+        {editingId ? 'Обновить' : 'Добавить'}
       </button>
 
       {/* Todo list */}
@@ -179,7 +179,7 @@ const TodoList = () => {
             />
           ))
         ) : (
-          <div className="no-todos">No todos yet. Add your first todo!</div>
+          <div className="no-todos">Задачи отсутствуют</div>
         )}
       </div>
     </div>
